@@ -11,7 +11,7 @@ This repository demonstrates practical **BI, Data Engineering, and Analytics** c
 
 - **Data Ingestion & ETL** with governance
 - **Data Warehouse** modeling (star schema ready)
-- **BI Dashboards & Visualization**
+- **BI Dashboards & Visualization** ← **NEW: Interactive Streamlit App**
 - **Predictive Analytics** (Credit / Investment Risk)
 
 Built to showcase production-grade skills relevant to core banking systems, CBC compliance, and data-driven decision making in the Cambodian banking sector.
@@ -20,9 +20,9 @@ Built to showcase production-grade skills relevant to core banking systems, CBC 
 
 ## 🛠️ Tech Stack
 
-- **Python** – Pandas, SQLAlchemy, Scikit-learn, XGBoost
+- **Python** – Pandas, SQLAlchemy, Scikit-learn, XGBoost, **Streamlit**
 - **Database** – PostgreSQL (with schema, views, logging)
-- **Visualization** – Jupyter Notebooks, Matplotlib / Seaborn / Plotly (expandable to Streamlit / Power BI)
+- **Visualization** – Plotly, Streamlit, Jupyter Notebooks
 - **Tools** – Docker-ready, Logging, Data Quality Reports
 - **Methodology** – Star Schema, SCD concepts, ETL best practices
 
@@ -31,21 +31,18 @@ Built to showcase production-grade skills relevant to core banking systems, CBC 
 ## 📁 Projects
 
 ### 1. Automated ETL Pipeline + Data Governance (`notebooks/etl_pipeline.py`)
-- Loads and cleans three banking datasets (`customer_data.csv`, `transaction_data.csv`, `bank_data.csv`)
+- Loads and cleans three banking datasets
 - Comprehensive data quality checks and reporting
 - Loads into PostgreSQL (`banking_bi_demo` schema)
-- Production features: Logging, error handling, chunked inserts, star-schema views
-- Ready for scheduling (Airflow / cron) and integration with core banking systems
+- Production features: Logging, error handling, chunked inserts
 
-### 2. Banking BI Dashboard (`notebooks/Project1_Banking_BI_Dashboard.ipynb`)
-- Exploratory Data Analysis (EDA)
-- Key performance metrics: Customer segmentation, branch performance, transaction trends
-- Interactive visualizations for business stakeholders
+### 2. Banking BI Dashboard (`streamlit_dashboard.py` + `notebooks/Project1_Banking_BI_Dashboard.ipynb`)
+- **Interactive Streamlit web app** connected to PostgreSQL
+- Customer segmentation, transaction trends, branch performance, KPIs
+- Real-time filters and visualizations
 
 ### 3. Predictive Credit Risk Modeling (`notebooks/Project2_Predictive_Credit_Risk.ipynb`)
-- Machine Learning models for credit/investment risk prediction
-- Feature engineering, model training & evaluation
-- Business insights tailored to emerging market lending (Cambodia context)
+- Machine Learning models for credit risk prediction
 
 ---
 
@@ -54,49 +51,44 @@ Built to showcase production-grade skills relevant to core banking systems, CBC 
 ### Prerequisites
 - Python 3.9+
 - PostgreSQL database
-- Raw data files in `raw_data/` folder (download from [Kaggle](https://www.kaggle.com/datasets/yogeshtekawade/banking-and-customer-transaction-data))
+- Raw data files in `raw_data/` folder (Kaggle link below)
 
-### Setup
+### 1. Run ETL
 ```bash
-# 1. Clone repo
 git clone https://github.com/vivord/Banking-BI-Management-Portfolio.git
 cd Banking-BI-Management-Portfolio
-
-# 2. Install dependencies
-pip install pandas sqlalchemy psycopg2-binary matplotlib seaborn plotly
-
-# 3. Update database config in etl_pipeline.py
-# 4. Run ETL
+pip install pandas sqlalchemy psycopg2-binary
 python notebooks/etl_pipeline.py
 ```
 
+### 2. Launch Streamlit Dashboard
+```bash
+pip install streamlit plotly
+streamlit run streamlit_dashboard.py
+```
+
+Open http://localhost:8501 in your browser.
+
 ### Docker Support (Coming Soon)
-Docker Compose setup for PostgreSQL + pgAdmin will be added.
 
 ---
 
 ## 🎯 Relevance to Canadia Bank / Cambodian Banking
 
-- **Core Banking Alignment**: Mirrors daily operations (batch processing, reporting, data quality)
-- **Regulatory Readiness**: Data validation, audit-ready logging, governance features (similar to CBC uploads)
-- **Business Impact**: Risk modeling, customer analytics, and dashboards support data-driven decisions
-- **Scalability**: Clean architecture, logging, and modular design for enterprise use
+- Mirrors core banking operations
+- Regulatory-ready data governance
+- **Live interactive dashboards** for stakeholder reporting
 
 ---
 
-## 📈 Future Enhancements (Portfolio Roadmap)
-
-- Streamlit / Power BI interactive dashboard
-- Full Docker + CI/CD pipeline
-- SCD Type 2 implementation for history tracking
-- Integration with CBC data templates
-- Advanced ML (SHAP explainability, deployment)
-
----
-
-## 📄 License
-MIT License – Feel free to explore and adapt.
+## 📈 Future Enhancements
+- Full Docker + CI/CD
+- SCD Type 2
+- CBC template integration
+- SHAP explainability in Streamlit
 
 ---
 
 **Made with ❤️ for advancing BI capabilities in Cambodian financial institutions.**
+
+[View Live Demo](https://github.com/vivord/Banking-BI-Management-Portfolio) (run locally)
