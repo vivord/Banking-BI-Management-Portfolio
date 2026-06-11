@@ -73,7 +73,7 @@ Open http://localhost:8501 in your browser.
 
 ---
 
-## 🎯 Relevance to Canadia Bank / Cambodian Banking
+## 🎯 Relevance to Cambodian Banking
 
 - Mirrors core banking operations
 - Regulatory-ready data governance
